@@ -1,0 +1,50 @@
+
+/*
+.jumbotron {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  text-shadow: #444 5px 5px 5px;
+  color: white; /*#f9535e
+  background-size: 100% 100%;
+  filter: brightness(95%);
+  background: url('https://ihatethereforeiamdotcom.files.wordpress.com/2014/12/cropped-sf-header-210.jpg') no-repeat center;
+}
+*/
+
+/*  
+html{
+  height: 100%;
+  background-image: url("https://i.amz.mshcdn.com/PaSsg68WhjFzk8dwl_V-EwfxMD4=/950x534/filters:quality(90)/https%3A%2F%2Fblueprint-api-production.s3.amazonaws.com%2Fuploads%2Fcard%2Fimage%2F129811%2FGettyImages-531495531.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: blur(2px);
+}
+*/
+
+
+body{
+  background: url("https://media.timeout.com/images/103246739/image.jpg") no-repeat,
+  linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5));
+  background-size: cover;
+  ; 
+}
+
+.top{
+  
+  padding: 10px;
+  position: absolute;
+  top: 25%;
+  /*left: 40%;*/
+  right: 0%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+}
+
+a:hover{
+  color: red;
+}

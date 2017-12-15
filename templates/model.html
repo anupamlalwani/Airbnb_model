@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Airbnb listing price</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- <link rel="stylesheet" type="text/css" href="jumbotron.css"> -->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='jumbotron.css') }}">
+</head>
+
+<body>
+  <!-- <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle=  "collapse" data-target="#bs-example-navbar-collapse-1"  aria-expanded="false">
+            <span class="sr-only"> Toggle navigation </span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand home-button" href="file:///Users/manjeetchawla/Documents/final_project2/Airbnb_Viz/navpage.html">
+            <span class="glyphicon glyphicon-home "></span>
+             <b> Airbnb SF Listings Analysis </b>
+          </a>
+        </div>
+        <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1" aria-expanded="false">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a class="dropdown-toggle highlight" data-toggle="dropdown" href="#">Plots 
+                <span class="caret"> </span>
+              </a>
+              <ul class="dropdown-menu">
+                <li class="dropdown-highlight "><a href="viz1.html" class="highlight"> % Restaurants with Reviews </a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="viz2.html" class="highlight">Rating Distrubution</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="viz3.html" class="highlight">Negative Score vs Yelp Rating</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="viz4.html" class="highlight">Positive Score vs Yelp Rating</a></li>
+                <li role="separator" class="divider"></li>
+                
+              </ul>
+            </li>
+            <li role="separator" class="divider"></li>
+            <li><a class="highlight" href="comparision.html" target="_blank"> Comparision </a></li>
+            <li><a class="highlight" href="#"> Data </a></li>
+            <li><a class="highlight" href="https://github.com/anupamlalwani/YelpProject_UCB" target="_blank"> Code </a></li>
+          </ul>
+        </div>
+      </div
+    </nav> -->
+    <div class="jumbotron text-center">
+      <!-- <style type="text/css" 
+      background-image:url({{url_for('static', filename='ayrton_senna_movie_wallpaper_by_bashgfx-d4cm6x6.jpg')}}")no-repeat center,
+  linear-gradient(
+      rgba(0, 0, 0, 0.8),
+      rgba(0, 0, 0, 0.8));"></style> -->
+      <h1>Predict your Airbnb listing Price</h1>
+    </div>
+
+   <div class="container"> 
+    
+     <form action="/start-over" method="GET">
+        <input type="submit" value="Start over"> </form>
+    
+
+    <form action="/get-user-data" method="POST">
+        
+      <br>
+        <label for="accommodates">How many people can be accommodated? </label>
+        <input type="number" name="accommodates" id="accommodates">
+        
+        <br><br>
+
+        <label for="bedrooms">No. of bedrooms</label>
+        <input type="number" name="bedrooms" id="bedrooms">
+        
+        <br><br>
+
+        <label for="bathrooms">No. of bathrooms</label>
+        <input type="float" name="bathrooms" id="num_bedrooms">
+        
+        <br><br>
+
+        <label for="neighborhood">Select your listing's neighborhood</label>
+        <select id="neighborhood" name="neighborhood">
+          <option value="Bayview">Bayview</option>
+          <option value="Bernal Heights">Bernal Heights</option>
+          <option value="Castro/Upper Market">Castro/Upper Market</option>
+          <option value="Chinatown">Chinatown</option>
+          <option value="Crocker Amazon">Crocker Amazon</option>
+          <option value="Diamond Heights">Diamond Heights</option>
+          <option value="Downtown/Civic Center">Downtown/Civic Center</option>
+          <option value="Excelsior">Excelsior</option>
+          <option value="BFinancial Districtayview">Financial District</option>
+          <option value="Glen Park">Glen Park</option>
+          <option value="Golden Gate Park">Golden Gate Park</option>
+          <option value="Haight Ashbury">Haight Ashbury</option>
+          <option value="Inner Richmond">Inner Richmond</option>
+          <option value="Inner Sunset">Inner Sunset</option>
+          <option value="Lakeshore">Lakeshore</option>
+          <option value="Mission">Mission</option>
+          <option value="Nob Hill">Nob Hill</option>
+          <option value="Noe Valley">Noe Valley</option>
+          <option value="North Beach">North Beach</option>
+          <option value="Ocean View">Ocean View</option>
+          <option value="Outer Mission">Outer Mission</option>
+          <option value="Outer Richmond">Outer Richmond</option>
+          <option value="Outer Sunset">Outer Sunset</option>
+          <option value="Pacific Heights">Pacific Heights</option>
+          <option value="Parkside">Parkside</option>
+          <option value="Potrero Hill">Potrero Hill</option>
+          <option value="Presidio">Presidio</option>
+          <option value="Presidio Heights">Presidio Heights</option>
+          <option value="Russian Hill">Russian Hill</option>
+          <option value="Seacliff">Seacliff</option>
+          <option value="South of Market">South of Market</option>
+          <option value="Treasure Island/YBI">Treasure Island/YBI</option>
+          <option value="Visitacion Valley">Visitacion Valley</option>
+          <option value="Twin Peaks">Twin Peaks</option>
+          <option value="West of Twin Peaks">West of Twin Peaks</option>
+          <option value="Western Addition">Western Addition</option>
+
+        </select>
+        <br><br>
+    <!-- <form action="/get-user-data" method="POST">
+        <input type="submit" value="Predict Price"> -->
+      <input type="submit" value="Predict Price">
+    </form>
+
+    <br><hr>
+    {% if pred: %}
+         <p>Your listing should be priced approximately at:</p>
+          <h3> $ {{pred}} </h3> 
+    {% endif %}
+
+    
+  </div>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
