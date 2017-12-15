@@ -1,0 +1,13 @@
+.jumbotron {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  text-shadow: #444 5px 5px 25px;
+  color: white; /*#f9535e*/
+  background-size: 100% 100%;
+  filter: brightness(95%);
+  background: url('https://media.timeout.com/images/103246739/image.jpg')no-repeat center,
+  linear-gradient(
+      rgba(0, 0, 0, 0.8),
+      rgba(0, 0, 0, 0.8));
+}
